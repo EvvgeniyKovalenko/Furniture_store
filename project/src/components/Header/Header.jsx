@@ -1,5 +1,6 @@
 import React from 'react'
 import s from './Header.module.css'
+import imgTitle from '../../../public/img/title.jpg'
 
 const Header = () => {
   return (
@@ -21,15 +22,16 @@ const Header = () => {
 
         </div>
 
-        <div>
-            <div>
-                <img></img>
+        <div className={s.header_wrapper_bottom}>
+          
+               <div className={s.header_wrapper_bottom_img}>
 
-            </div>
+               </div>
+          
 
-            <div>
-              <p></p>
-              <p></p>
+            <div className={s.header_wrapper_bottom_text}>
+              <p>Лучшие товары для ващего дома</p>
+              <p>по низким ценам</p>
             </div>
 
 
