@@ -1,0 +1,26 @@
+.header_wrapper_top{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 600px;
+    color: black;
+  
+}
+
+.info_wrapper ul{
+    display:  flex;
+    list-style: none;
+
+}
+
+
+.info_wrapper ul li{
+  margin: 0 5px 0 15px;
+  cursor: pointer;
+
+}
+
+.info_wrapper ul li:hover{
+    color: rgb(113, 108, 108);
+}
+
