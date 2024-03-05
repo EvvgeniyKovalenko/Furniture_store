@@ -1,18 +1,28 @@
 import React from 'react'
 import s from './Header.module.css'
-import imgTitle from '../../../public/img/title.jpg'
+import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { useState } from 'react';
+
 
 const Header = () => {
+
+  let [click, setClick]=useState(false)
+
+
   return (
     <div className={s.header_wrapper}>
 
         <div className={s.header_wrapper_top}>
         
               <div>
-                Лого
+                 Лого
               </div>
             
             <div className={s.info_wrapper}>
+
+               <HiOutlineShoppingBag className={click?s.shop_card_button_true:s.shop_card_button_false}
+                                      onClick={()=>{setClick(!click)}} />
+
                 <ul>
                   <li>Про нас</li>
                   <li>Контакты</li>

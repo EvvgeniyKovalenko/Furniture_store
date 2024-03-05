@@ -8,6 +8,12 @@
   
 }
 
+
+.info_wrapper{
+    display: flex;
+
+}
+
 .info_wrapper ul{
     display:  flex;
     list-style: none;
@@ -24,6 +30,7 @@
 .info_wrapper ul li:hover{
     color: rgb(113, 108, 108);
 }
+
 
 /* The header part with img  */
 
@@ -64,7 +71,14 @@
 
        }   
 
-       
+.shop_card_button_true{
+    color: red;
+  
+}
+
+.shop_card_button_false{
+
+}
    
 
 

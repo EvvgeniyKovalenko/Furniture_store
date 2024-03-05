@@ -1,0 +1,7 @@
+.main_wrapper{
+    width: 1280px;
+    height: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
