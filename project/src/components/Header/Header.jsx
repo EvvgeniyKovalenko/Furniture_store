@@ -11,9 +11,11 @@ const Header = (props) => {
 
   let [click, setClick]=useState(false)
   let basketItem =props.store.getState().main.basketItem
-  let basketItems = basketItem.map((item)=>(<BasketItem  basketItem={props.store.getState().main.basketItem}
+  let basketItems = basketItem.map((item)=>(<BasketItem  store={props.store}
+                                                         basketItem={props.store.getState().main.basketItem}
                                                          title={item.title}
-                                                         price={item.price}   
+                                                         price={item.price} 
+                                                         item={item}  
                                                          img={item.img} 
                                                          key ={item.id}
                                                          

@@ -1,4 +1,5 @@
 const ADD_BASKET = 'ADD_BASKET';
+const DELETE_ITEM = 'DELETE_ITEM'
 
 let initialState = {
     items:[
@@ -59,11 +60,19 @@ switch(action.type){
       ...state,
       basketItem:[...state.basketItem, action.getItem]
     } 
+    
   }
+  case DELETE_ITEM:
+    return {
+      ...state,
+      basketItem: state.basketItem.filter(item => item.id !== action.getId)
+    }
+  
   default: return state
 }
 }
 
 export const addBasketCreator = (item)=>({type: ADD_BASKET, getItem:item})
+export const deleteItemCreator = (id)=>({type:DELETE_ITEM, getId:id})
 
 export default mainReducer;

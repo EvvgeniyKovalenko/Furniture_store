@@ -1,18 +1,23 @@
 import React from 'react'
 import s from './Item.module.css'
-import { addBasketCreator } from '../../../redux/mainReducer'
+import { addBasketCreator} from '../../../redux/mainReducer'
 
 
 function Item(props) {
-
 debugger
 let add = ()=>{
   let item = props.item
-  props.store.dispatch(addBasketCreator(item))
+
+  let basketItem_elem = props.basketItem.some(elem=>elem.id===item.id)
+
+  if(!basketItem_elem){
+    props.store.dispatch(addBasketCreator(item))
+   
+  }
 }
   
   return (
-    <div className={s.item_wrapper}>
+    <div className={s.item_wrapper} >
 
       <div className={s.item_wrapper_img}>
          <img src={'./img/'+props.img}/>
