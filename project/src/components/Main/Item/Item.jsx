@@ -1,7 +1,15 @@
 import React from 'react'
 import s from './Item.module.css'
+import { addBasketCreator } from '../../../redux/mainReducer'
+
 
 function Item(props) {
+
+debugger
+let add = ()=>{
+  let item = props.item
+  props.store.dispatch(addBasketCreator(item))
+}
   
   return (
     <div className={s.item_wrapper}>
@@ -15,7 +23,7 @@ function Item(props) {
           <p>{props.desc}</p>
           <b>{props.price}</b>
       </div>
-      <button>+</button>
+      <button onClick={add}>+</button>
 
     </div> 
   )

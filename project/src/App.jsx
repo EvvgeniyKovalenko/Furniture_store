@@ -9,7 +9,7 @@ debugger
 
   return (
     <div className='app_wrapper'>
-    <Header/>
+    <Header store={props.store}/>
     <Main store={props.store}/>
 
      

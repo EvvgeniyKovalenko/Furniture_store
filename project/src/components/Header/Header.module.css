@@ -70,18 +70,35 @@
        margin-bottom: 10px;
 
        }   
+       
+       
+.info_wrapper{
+ position: relative;
+       }      
+.info_wrapper svg{
+ transition: transform 500ms;
+ cursor: pointer;
 
-.shop_card_button_true{
-    color: red;
-  
+
+}
+.info_wrapper svg:hover{
+ transform: translateY(-3px);
 }
 
-.shop_card_button_false{
-
+.info_wrapper_basket_true{
+ color: rgb(255, 127, 187);
 }
-   
 
 
+.info_wrapper_basketArea{
+    width: 300px;
+    height:auto;
+    background-color: rgba(255, 255, 252, 0.928);
+    border-radius: 3px;
+    position: absolute;
+    z-index: 3;
+    top: 30px;
+}
 
 
 

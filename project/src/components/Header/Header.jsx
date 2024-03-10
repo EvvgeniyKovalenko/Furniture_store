@@ -2,12 +2,29 @@ import React from 'react'
 import s from './Header.module.css'
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { useState } from 'react';
+import BasketItem from './BasketItems/BasketItem';
 
 
-const Header = () => {
+
+const Header = (props) => {
 
   let [click, setClick]=useState(false)
+  let basketItem =props.store.getState().main.basketItem
+  let basketItems = basketItem.map((item)=>(<BasketItem  basketItem={props.store.getState().main.basketItem}
+                                                         title={item.title}
+                                                         price={item.price}   
+                                                         img={item.img} 
+                                                         key ={item.id}
+                                                         
+  />))
 
+
+let emptyBasket = ()=>{
+  let emptyDescription = 'товаров нет'
+
+ return basketItem.length > 0 ?basketItems:emptyDescription
+
+}
 
   return (
     <div className={s.header_wrapper}>
@@ -20,8 +37,11 @@ const Header = () => {
             
             <div className={s.info_wrapper}>
 
-               <HiOutlineShoppingBag className={click?s.shop_card_button_true:s.shop_card_button_false}
+               <HiOutlineShoppingBag className={click?s.info_wrapper_basket_true:s.info_wrapper_basket_false}
                                       onClick={()=>{setClick(!click)}} />
+
+                {click&&<div className={s.info_wrapper_basketArea}>{emptyBasket()}</div>}
+                                    
 
                 <ul>
                   <li>Про нас</li>

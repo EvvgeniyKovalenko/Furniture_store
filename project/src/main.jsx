@@ -11,7 +11,7 @@ debugger
 let renderEntireTree = ()=>{
   root.render(
   <React.StrictMode>
-    <App store={store.getState().main}/>
+    <App store={store}/>
   </React.StrictMode>
 
 

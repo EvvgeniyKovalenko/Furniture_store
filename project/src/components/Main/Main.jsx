@@ -3,11 +3,15 @@ import s from './Main.module.css'
 import Item from './Item/Item'
 
 const Main = (props) => {
-debugger
-  let items = props.store.items.map((item)=>(<Item title={item.title}
+
+  let items = props.store.getState().main.items.map((item)=>(<Item key={item.id} title={item.title}
                                                    desc={item.desc} 
                                                    price={item.price}   
-                                                   img={item.img} />))
+                                                   img={item.img} 
+                                                   item={item}
+                                                   store={props.store}
+                                                   
+                                                   />))
   return (
     <div className={s.main_wrapper}>
        {items}

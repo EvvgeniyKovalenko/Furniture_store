@@ -1,3 +1,4 @@
+const ADD_BASKET = 'ADD_BASKET';
 
 let initialState = {
     items:[
@@ -46,12 +47,23 @@ let initialState = {
           price:'49.90$'
 
         }
-      ]
+      ],
+    basketItem:[]
 }
 
 
 let mainReducer = (state=initialState, action)=>{
-    return state
+switch(action.type){
+  case ADD_BASKET:{
+    return{
+      ...state,
+      basketItem:[...state.basketItem, action.getItem]
+    } 
+  }
+  default: return state
 }
+}
+
+export const addBasketCreator = (item)=>({type: ADD_BASKET, getItem:item})
 
 export default mainReducer;
