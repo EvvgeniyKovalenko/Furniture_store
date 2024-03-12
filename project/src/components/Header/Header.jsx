@@ -21,6 +21,18 @@ const Header = (props) => {
                                                          
   />))
 
+
+
+const getPrice = (object)=>{
+  return object.reduce((count,item)=>{
+    let stringToNumber =parseFloat(item.price)
+    return count + stringToNumber
+  },0)
+  }
+
+const totalPrice = getPrice(basketItem)
+
+
 // логика подстановки надписи:'товаров нет', если корзина пуста
 let emptyBasket = ()=>(basketItem.length > 0 ?basketItems:<EmptyBasket/>)
 
@@ -42,7 +54,10 @@ let emptyBasket = ()=>(basketItem.length > 0 ?basketItems:<EmptyBasket/>)
                                       onClick={()=>{setClick(!click)}} />
 
                  {/* логика по открытию окна корзины */}
-                {click&&<div className={s.info_wrapper_basketArea}>{emptyBasket()}</div>}
+                {click&&<div className={s.info_wrapper_basketArea}>
+                {emptyBasket()}
+                {basketItem.length>0?<div className={s.info_wrapper_total}>Общаяя стоимость: {totalPrice} $</div>:''}
+                </div>}
                                     
                 <ul>
                   <li>Про нас</li>

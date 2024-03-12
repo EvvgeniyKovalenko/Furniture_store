@@ -103,5 +103,11 @@
    
 }
 
+.info_wrapper_total{
+    font-weight: 600;
+    color:rgb(32, 33, 32) ;
+    font-size: 14px;
+    margin: 3px 0 3px 10px;
+}
 
 

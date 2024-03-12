@@ -1,6 +1,7 @@
 const ADD_BASKET = 'ADD_BASKET';
 const DELETE_ITEM = 'DELETE_ITEM'
 
+
 let initialState = {
     items:[
         {
@@ -9,7 +10,7 @@ let initialState = {
           img: 'chear.jpg',
           desc: 'мягкий икеевский стул',
           categori: 'chairs',
-          price:'49.90$'
+          price:'49.90'
 
         },
         {
@@ -18,7 +19,7 @@ let initialState = {
           img: 'table.jpg',
           desc: 'мягкий икеевский стул',
           categori: 'chairs',
-          price:'49.90$'
+          price:'49.90'
 
         },
         {
@@ -27,7 +28,7 @@ let initialState = {
           img: 'bed.jpg',
           desc: 'мягкий икеевский стул',
           categori: 'chairs',
-          price:'49.90$'
+          price:'49.90'
 
         },
         {
@@ -36,7 +37,7 @@ let initialState = {
           img: 'sofa.jpg',
           desc: 'мягкий икеевский стул',
           categori: 'chairs',
-          price:'49.90$'
+          price:'49.90'
 
         },
         {
@@ -45,28 +46,29 @@ let initialState = {
           img: 'nightstand.jpg',
           desc: 'мягкий икеевский стул',
           categori: 'chairs',
-          price:'49.90$'
+          price:'49.90'
 
         }
       ],
-    basketItem:[]
+    basketItem:[],
+    totalPrice: 0
 }
 
 
 let mainReducer = (state=initialState, action)=>{
 switch(action.type){
-  case ADD_BASKET:{
+  case ADD_BASKET:
     return{
       ...state,
       basketItem:[...state.basketItem, action.getItem]
     } 
     
-  }
   case DELETE_ITEM:
     return {
-      ...state,
-      basketItem: state.basketItem.filter(item => item.id !== action.getId)
+    ...state,
+    basketItem: state.basketItem.filter((elem)=>(elem.id!==action.getId))
     }
+  
   
   default: return state
 }
@@ -74,5 +76,6 @@ switch(action.type){
 
 export const addBasketCreator = (item)=>({type: ADD_BASKET, getItem:item})
 export const deleteItemCreator = (id)=>({type:DELETE_ITEM, getId:id})
+
 
 export default mainReducer;

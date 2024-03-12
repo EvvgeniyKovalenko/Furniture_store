@@ -4,7 +4,7 @@ import { addBasketCreator} from '../../../redux/mainReducer'
 
 
 function Item(props) {
-debugger
+
 let add = ()=>{
   let item = props.item
 
@@ -26,7 +26,7 @@ let add = ()=>{
       <div className={s.item_wrapper_description}>
           <h2>{props.title}</h2>
           <p>{props.desc}</p>
-          <b>{props.price}</b>
+          <b>{props.price} $</b>
       </div>
       <button onClick={add}>+</button>
 
