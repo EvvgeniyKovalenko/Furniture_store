@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import MainContainer from './components/Main/MainContainer';
+
+import HeaderContainer from './components/Header/HeaderContainer';
 
 import './App.css'
 
@@ -9,8 +10,8 @@ debugger
 
   return (
     <div className='app_wrapper'>
-    <Header store={props.store}/>
-    <Main store={props.store}/>
+    <HeaderContainer />
+    <MainContainer />
 
      
     </div>

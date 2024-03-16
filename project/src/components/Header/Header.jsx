@@ -10,9 +10,8 @@ import EmptyBasket from './EmptyBasket/EmptyBasket';
 const Header = (props) => {
 
   let [click, setClick]=useState(false)
-  let basketItem =props.store.getState().main.basketItem
-  let basketItems = basketItem.map((item)=>(<BasketItem  store={props.store}
-                                                         basketItem={props.store.getState().main.basketItem}
+  let basketItem =props.basketItem
+  let basketItems = basketItem.map((item)=>(<BasketItem  deleteItem={props.deleteItem}
                                                          title={item.title}
                                                          price={item.price} 
                                                          item={item}  
@@ -22,7 +21,7 @@ const Header = (props) => {
   />))
 
 
-
+// логика подсчета суммы цен товаров
 const getPrice = (object)=>{
   return object.reduce((count,item)=>{
     let stringToNumber =parseFloat(item.price)
@@ -56,7 +55,7 @@ let emptyBasket = ()=>(basketItem.length > 0 ?basketItems:<EmptyBasket/>)
                  {/* логика по открытию окна корзины */}
                 {click&&<div className={s.info_wrapper_basketArea}>
                 {emptyBasket()}
-                {basketItem.length>0?<div className={s.info_wrapper_total}>Общаяя стоимость: {totalPrice} $</div>:''}
+                {basketItem.length>0?<div className={s.info_wrapper_total}>Общаяя стоимость: {new Intl.NumberFormat().format(totalPrice)} $</div>:''}
                 </div>}
                                     
                 <ul>

@@ -1,19 +1,15 @@
 import React from 'react'
 import s from './Item.module.css'
-import { addBasketCreator} from '../../../redux/mainReducer'
+
 
 
 function Item(props) {
 
 let add = ()=>{
-  let item = props.item
-
-  let basketItem_elem = props.basketItem.some(elem=>elem.id===item.id)
-
-  if(!basketItem_elem){
-    props.store.dispatch(addBasketCreator(item))
-   
-  }
+       let item = props.item
+       let basketItem_elem = props.basketItem.some(elem=>elem.id===item.id)
+          if(!basketItem_elem){
+          props.addItemToBasket(item)}
 }
   
   return (

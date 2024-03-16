@@ -1,12 +1,12 @@
 import React from 'react'
 import s from './BasketItem.module.css'
-import { deleteItemCreator } from '../../../redux/mainReducer'
+
 
 function BasketItem(props) {
 
   const del = ()=>{
     let id = props.item.id
-    props.store.dispatch(deleteItemCreator(id))
+    props.deleteItem(id)
   }
 
 
